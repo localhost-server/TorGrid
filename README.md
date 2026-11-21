@@ -11,9 +11,9 @@ TorGrid connects hundreds of **strictly unique, non-duplicate Tor Exit IPs in pa
 | Platform | Download | Details |
 | :--- | :--- | :--- |
 | **Android (`arm64` + `arm32`)** | [**Download `torgrid.apk`**](https://github.com/localhost-server/TorGrid/releases/latest/download/torgrid.apk) | Universal APK (Android 8.0+) • Whole-Phone & Per-App VPN + Local/Wi-Fi Proxy (`tor` & `obfs4proxy` bundled) |
-| **Debian / Ubuntu / Kali (`amd64 .deb`)** | [**Download `torgrid_1.0.0_amd64.deb`**](https://github.com/localhost-server/TorGrid/releases/latest/download/torgrid_1.0.0_amd64.deb) | 1-command `apt` installer • Auto-installs `tor` & `obfs4proxy` + Desktop App Menu launcher |
+| **Debian / Ubuntu / Kali (`amd64 .deb`)** | [**Download `torgrid_1.0.0_amd64.deb`**](https://github.com/localhost-server/TorGrid/releases/latest/download/torgrid_1.0.0_amd64.deb) | 1-command `apt` installer • Native **System Tray** indicator + auto-installs `tor` & `obfs4proxy` |
 | **Debian / Raspberry Pi (`arm64 .deb`)** | [**Download `torgrid_1.0.0_arm64.deb`**](https://github.com/localhost-server/TorGrid/releases/latest/download/torgrid_1.0.0_arm64.deb) | 1-command ARM64 `apt` installer (Raspberry Pi OS 64-bit, Debian/Ubuntu ARM64) |
-| **Windows (`x86_64`)** | [**Download `torgrid-windows-amd64.exe`**](https://github.com/localhost-server/TorGrid/releases/latest/download/torgrid-windows-amd64.exe) | Standalone Windows 10/11 `.exe` + Auto-Opening Local Web UI (`127.0.0.1:8080/dashboard`) |
+| **Windows (`x86_64`)** | [**Download `torgrid-windows-amd64.exe`**](https://github.com/localhost-server/TorGrid/releases/latest/download/torgrid-windows-amd64.exe) | Zero-terminal **Windows System Tray** `.exe` (shows active IP, Connect/Disconnect, & LAN toggle) |
 | **Linux Portable (`x86_64` / `ARM64`)** | [**`torgrid-linux-amd64`**](https://github.com/localhost-server/TorGrid/releases/latest/download/torgrid-linux-amd64) · [**`torgrid-linux-arm64`**](https://github.com/localhost-server/TorGrid/releases/latest/download/torgrid-linux-arm64) | Standalone static binaries for Arch, Fedora, Alpine, or headless servers |
 | **SHA-256 Checksums** | [**`SHA256SUMS`**](https://github.com/localhost-server/TorGrid/releases/latest/download/SHA256SUMS) | Verify integrity of all official release binaries |
 
@@ -70,23 +70,22 @@ TorGrid connects hundreds of **strictly unique, non-duplicate Tor Exit IPs in pa
 2. Tap **Connect** on the home screen (and switch on **Phone VPN** if you want device apps routed through TorGrid).
 3. Open the **Proxy** tab to copy `:10000` (`SOCKS5`) / `:8080` (`HTTP`), add to Telegram in 1 tap, inspect all live connected Exit IPs, or enable **Share on Wi-Fi LAN** for your PC.
 
-### 2. Linux PC (`.deb` Package or Portable Binary)
+### 2. Linux PC (`.deb` Package or Portable Binary — System Tray Mode)
 ```bash
-# Option A — Debian / Ubuntu / Kali / Mint (.deb auto-installs tor & obfs4proxy + App Menu icon!):
+# Option A — Debian / Ubuntu / Kali / Mint (.deb auto-installs tor & obfs4proxy + System Tray launcher):
 sudo apt install ./torgrid_1.0.0_amd64.deb
-torgrid
-# (Or launch "TorGrid" directly from your Linux Application Menu!)
+torgrid --daemon
+# (Or click "TorGrid" in your App Menu — manage everything right from your top System Tray icon!)
 
 # Option B — Portable binary (Arch / Fedora / any distro):
 sudo pacman -S tor lyrebird   # or: sudo dnf install tor obfs4proxy
 chmod +x torgrid-linux-amd64
-./torgrid-linux-amd64
-# Dashboard opens at: http://127.0.0.1:8080/dashboard
+./torgrid-linux-amd64 --daemon
 ```
 
-### 3. Windows PC (`torgrid-windows-amd64.exe`)
+### 3. Windows PC (`torgrid-windows-amd64.exe` — System Tray Mode)
 1. Ensure **Tor Browser** is installed *or* extract `tor.exe` from the official [Tor Expert Bundle](https://www.torproject.org/download/tor/) into the same folder as `torgrid-windows-amd64.exe` (or in `PATH`).
-2. Double-click **`torgrid-windows-amd64.exe`** — your browser will open **`http://127.0.0.1:8080/dashboard`** automatically.
+2. Double-click **`torgrid-windows-amd64.exe`** — runs silently in your **Windows System Tray** (zero terminal window) showing your active proxy IP (`127.0.0.1` or Wi-Fi LAN IP), Connect/Disconnect, Grid Size, and Share on Wi-Fi LAN switch.
 
 ### 4. Using the Proxy from Any App, Browser, or Script
 ```bash
