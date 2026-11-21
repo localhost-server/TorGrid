@@ -1,8 +1,12 @@
 # TorGrid
 
-**Self-Healing Multi-Circuit Tor Proxy (`100`–`1,100` Parallel Unique Exit IPs) & Split-Tunnel Android VPN** — available for **Android**, **Windows**, and **Linux**.
+**1-Click `100`–`1,100` Unique-IP Rotating Tor Proxy & Split-Tunnel Android VPN** — use anywhere, anytime on **Android**, **Windows**, and **Linux** with **zero Docker, zero config files, and zero technical setup**.
 
-TorGrid connects hundreds of **strictly unique, non-duplicate Tor Exit IPs in parallel** behind a single local `SOCKS5` (`:10000`) and `HTTP/HTTPS` (`:8080`) gateway—automatically disconnecting duplicate or dead circuits and replacing them from the global Tor consensus pool without ever disturbing your already-connected unique IPs.
+TorGrid connects hundreds of **strictly unique, non-duplicate Tor Exit IPs in parallel** behind a single local `SOCKS5` (`:10000`) and `HTTP/HTTPS` (`:8080`) gateway—automatically rotating your Exit IP across normal browser reloads and scraper/CLI requests while self-healing dead circuits in the background without ever disturbing your already-connected unique IPs.
+
+<p align="center">
+  <img src="screenshots/torgrid-demo.gif" width="820" alt="TorGrid Live Multi-Circuit IP Rotation Demo" />
+</p>
 
 ---
 
