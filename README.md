@@ -85,7 +85,7 @@ chmod +x torgrid-linux-amd64
 
 ### 3. Windows PC (`torgrid-windows-amd64.exe` — System Tray Mode)
 1. Ensure **Tor Browser** is installed *or* extract `tor.exe` from the official [Tor Expert Bundle](https://www.torproject.org/download/tor/) into the same folder as `torgrid-windows-amd64.exe` (or in `PATH`).
-2. Double-click **`torgrid-windows-amd64.exe`** — runs silently in your **Windows System Tray** (zero terminal window) showing your active proxy IP (`127.0.0.1` or Wi-Fi LAN IP), Connect/Disconnect, Grid Size, and Share on Wi-Fi LAN switch.
+2. Double-click **`torgrid-windows-amd64.exe`** — runs silently in your **Windows System Tray** (zero terminal window) showing your active proxy IP (`127.0.0.1` or Wi-Fi LAN IP), Connect/Disconnect, Share on Wi-Fi LAN switch, and 1-click Web Dashboard.
 
 ### 4. Using the Proxy from Any App, Browser, or Script
 ```bash
