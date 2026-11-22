@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://localhost-server.github.io/TorGrid/sitemap.xml

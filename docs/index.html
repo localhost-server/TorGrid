@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TorGrid — Official Download | 1,100-IP Rotating Tor Proxy &amp; Split-Tunnel Android VPN</title>
+  <meta name="description" content="Download TorGrid (v1.0.0) for Android, Windows, and Linux (.deb). 1-click self-healing multi-circuit Tor proxy connecting 100 to 1,100 unique parallel Exit IPs behind a single local SOCKS5 (:10000) &amp; HTTP (:8080) gateway with zero Docker and zero setup." />
+  <meta name="keywords" content="TorGrid, TorGrid download, TorGrid APK, TorGrid Linux deb, TorGrid Windows, multi-circuit Tor proxy, rotating Tor SOCKS5 proxy, rotating HTTP proxy, split-tunnel Tor VPN Android, Orbot alternative, Kali Linux rotating proxy, obfs4 bridge proxy" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://localhost-server.github.io/TorGrid/" />
+  <link rel="icon" type="image/png" href="assets/torgrid-icon-512.png" />
+  <link rel="apple-touch-icon" href="assets/torgrid-icon-512.png" />
+
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TorGrid" />
+  <meta property="og:title" content="TorGrid — 1-Click 1,100-IP Rotating Tor Proxy &amp; Android VPN" />
+  <meta property="og:description" content="Connect 100–1,100 strictly unique Tor Exit IPs in parallel behind one local SOCKS5 &amp; HTTP port on Android, Windows, and Linux. Zero Docker, zero setup, 100% free." />
+  <meta property="og:url" content="https://localhost-server.github.io/TorGrid/" />
+  <meta property="og:image" content="https://localhost-server.github.io/TorGrid/assets/web-dashboard.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TorGrid — 1-Click 1,100-IP Rotating Tor Proxy &amp; Android VPN" />
+  <meta name="twitter:description" content="Self-healing multi-circuit Tor proxy (100–1,100 unique Exit IPs) &amp; split-tunnel Android VPN. Available free for Android, Windows, and Linux." />
+  <meta name="twitter:image" content="https://localhost-server.github.io/TorGrid/assets/web-dashboard.png" />
+
+  <!-- Schema.org SoftwareApplication + FAQPage Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "TorGrid",
+        "alternateName": "TorGrid Multi-Circuit Tor Proxy",
+        "url": "https://localhost-server.github.io/TorGrid/",
+        "sameAs": [
+          "https://github.com/localhost-server/TorGrid"
+        ],
+        "image": "https://localhost-server.github.io/TorGrid/assets/torgrid-icon-512.png",
+        "screenshot": [
+          "https://localhost-server.github.io/TorGrid/assets/torgrid-demo.gif",
+          "https://localhost-server.github.io/TorGrid/assets/android-connect.png",
+          "https://localhost-server.github.io/TorGrid/assets/web-dashboard.png"
+        ],
+        "applicationCategory": "SecurityApplication",
+        "applicationSubCategory": "VPN & Proxy Software",
+        "operatingSystem": "Android 8.0+, Windows 10/11 (x64), Debian, Ubuntu, Kali Linux (amd64, arm64)",
+        "softwareVersion": "1.0.0",
+        "downloadUrl": "https://github.com/localhost-server/TorGrid/releases/latest",
+        "description": "TorGrid is a 1-click self-healing multi-circuit Tor proxy and split-tunnel Android VPN that connects 100, 350, 700, or 1,100 strictly non-duplicate Tor Exit IPs in parallel behind a single local SOCKS5 (:10000) and HTTP/HTTPS (:8080) gateway.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "TorGrid",
+          "url": "https://github.com/localhost-server/TorGrid"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is TorGrid and how is it different from standard Tor or Orbot?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Standard Tor and Orbot route traffic through 1 single circuit at a time. TorGrid connects 100, 350, 700, or 1,100 strictly unique, non-duplicate Tor Exit IPs in parallel behind a single local SOCKS5 (:10000) and HTTP/HTTPS (:8080) port, rotating across them automatically in round-robin order while self-healing dead circuits in the background."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does TorGrid require Docker, Python, or terminal setup?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. TorGrid runs as a standalone native Android APK (with Tor and obfs4proxy bundled inside), a silent Windows System Tray .exe, and a 1-command Debian/Ubuntu/Kali .deb package with a native System Tray menu."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does TorGrid rotate Exit IPs on normal browser reloads?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. TorGrid automatically closes idle Keep-Alive web sockets after 1.8 seconds of post-response silence without interrupting active downloads or Telegram push sockets, so even normal browser reloads step onto the next unique Tor Exit IP."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #070510;
+      --card: #100d1f;
+      --card-alt: #16122b;
+      --border: #272046;
+      --text: #f8f7ff;
+      --muted: #b4b0c8;
+      --primary: #7c3aed;
+      --primary-light: #a78bfa;
+      --emerald: #10b981;
+      --emerald-light: #34d399;
+      --grad: linear-gradient(135deg, #8b5cf6 0%, #4f46e5 55%, #c026d3 100%);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      background: radial-gradient(circle at 50% 0%, #1b123b 0%, var(--bg) 52%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--primary-light); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1060px; margin: 0 auto; padding: 0 20px; }
+
+    /* Navbar */
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 20px; color: #fff; text-decoration: none !important; }
+    .brand img { width: 38px; height: 38px; border-radius: 10px; }
+    .nav-links { display: flex; gap: 18px; align-items: center; font-size: 14px; font-weight: 600; }
+    .nav-links a { color: var(--muted); }
+    .nav-links a:hover { color: #fff; text-decoration: none; }
+
+    /* Hero */
+    .hero { text-align: center; padding: 64px 0 42px; }
+    .badge {
+      display: inline-block; padding: 6px 14px; border-radius: 999px;
+      background: rgba(124, 58, 237, 0.16); border: 1px solid rgba(167, 139, 250, 0.35);
+      color: #ddd6fe; font-size: 12.5px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 20px;
+    }
+    h1 {
+      font-size: clamp(30px, 5vw, 50px); font-weight: 900; line-height: 1.14;
+      letter-spacing: -0.02em; max-width: 880px; margin: 0 auto 18px;
+    }
+    h1 span {
+      background: linear-gradient(135deg, #c4b5fd, #818cf8, #34d399);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      max-width: 720px; margin: 0 auto 30px; font-size: 17.5px; color: var(--muted);
+    }
+    .cta-grid {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 16px;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 9px; padding: 13px 22px;
+      border-radius: 13px; font-weight: 700; font-size: 14.5px; text-decoration: none !important;
+      border: 1px solid var(--border); background: var(--card); color: #fff;
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: var(--primary-light); }
+    .btn.primary {
+      background: var(--grad); border-color: transparent;
+      box-shadow: 0 10px 28px rgba(124, 58, 237, 0.38);
+    }
+    .sub-note { font-size: 13px; color: #8e89a8; margin-bottom: 36px; }
+    .demo-frame {
+      max-width: 920px; margin: 0 auto; border-radius: 20px; overflow: hidden;
+      border: 1px solid var(--border); box-shadow: 0 22px 60px rgba(0,0,0,0.65);
+    }
+    .demo-frame img { width: 100%; height: auto; display: block; }
+
+    /* Sections */
+    section { padding: 54px 0; border-top: 1px solid rgba(255,255,255,0.06); }
+    h2 { font-size: 28px; font-weight: 800; text-align: center; margin-bottom: 12px; }
+    .sec-sub { text-align: center; color: var(--muted); max-width: 660px; margin: 0 auto 34px; font-size: 15.5px; }
+
+    .features {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 18px;
+    }
+    .card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 24px;
+    }
+    .card h3 { font-size: 17.5px; margin-bottom: 8px; color: #fff; }
+    .card p { font-size: 14.5px; color: var(--muted); }
+
+    /* Downloads Table */
+    .dl-table-wrap { overflow-x: auto; background: var(--card); border: 1px solid var(--border); border-radius: 18px; }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14.5px; }
+    th, td { padding: 15px 18px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    th { background: var(--card-alt); color: #e2dff5; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+    tr:last-child td { border-bottom: none; }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      background: var(--card-alt); padding: 3px 7px; border-radius: 6px; font-size: 13px; color: #e2e8f0;
+    }
+    pre {
+      background: #090714; border: 1px solid var(--border); border-radius: 14px;
+      padding: 16px 18px; overflow-x: auto; font-size: 13px; color: #e2e8f0; margin-top: 12px;
+    }
+
+    /* Screenshots */
+    .shots {
+      display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 22px;
+    }
+    .shots img.phone { width: 250px; border-radius: 22px; border: 1px solid var(--border); }
+    .shots img.web { width: 100%; max-width: 760px; border-radius: 18px; border: 1px solid var(--border); margin-top: 8px; }
+
+    /* FAQ */
+    details {
+      background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+      padding: 16px 20px; margin-bottom: 12px;
+    }
+    summary { font-weight: 700; cursor: pointer; font-size: 15.5px; color: #fff; }
+    details p { margin-top: 10px; font-size: 14.5px; color: var(--muted); }
+
+    footer {
+      text-align: center; padding: 40px 0 54px; border-top: 1px solid rgba(255,255,255,0.06);
+      color: #8e89a8; font-size: 13.5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <nav>
+      <a class="brand" href="https://localhost-server.github.io/TorGrid/">
+        <img src="assets/torgrid-icon-512.png" alt="TorGrid Shield Logo" />
+        <span>TorGrid</span>
+      </a>
+      <div class="nav-links">
+        <a href="#downloads">Downloads</a>
+        <a href="#features">Features</a>
+        <a href="#quickstart">Quick Start</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://github.com/localhost-server/TorGrid" rel="noopener">GitHub &nearr;</a>
+      </div>
+    </nav>
+
+    <section class="hero" style="border-top:none;">
+      <div class="badge">v1.0.0 Official Release &bull; 100% Free &amp; Ad-Free</div>
+      <h1>1-Click <span>1,100-IP Rotating Tor Proxy</span> &amp; Split-Tunnel Android VPN</h1>
+      <p>
+        Use hundreds of strictly unique, non-duplicate Tor Exit IPs in parallel behind a single local
+        <code>SOCKS5 (:10000)</code> &amp; <code>HTTP (:8080)</code> port on <strong>Android</strong>,
+        <strong>Windows</strong>, and <strong>Linux</strong> — with zero Docker, zero config files, and zero technical setup.
+      </p>
+
+      <div class="cta-grid">
+        <a class="btn primary" href="https://github.com/localhost-server/TorGrid/releases/latest/download/torgrid.apk">
+          Download Android APK
+        </a>
+        <a class="btn" href="https://github.com/localhost-server/TorGrid/releases/latest/download/torgrid_1.0.0_amd64.deb">
+          Debian / Ubuntu / Kali (.deb)
+        </a>
+        <a class="btn" href="https://github.com/localhost-server/TorGrid/releases/latest/download/torgrid-windows-amd64.exe">
+          Windows System Tray (.exe)
+        </a>
+        <a class="btn" href="https://github.com/localhost-server/TorGrid">
+          View on GitHub
+        </a>
+      </div>
+      <div class="sub-note">
+        No registration &bull; Bundled <code>tor</code> &amp; <code>obfs4proxy</code> on Android &bull; Silent System Tray on Windows &amp; Linux
+      </div>
+
+      <div class="demo-frame">
+        <img src="assets/torgrid-demo.gif" alt="TorGrid Live 350/350 Multi-Circuit Tor Exit IP Rotation Demo" width="960" height="520" />
+      </div>
+    </section>
+
+    <section id="features">
+      <h2>Built for Effortless Convenience &amp; Scale</h2>
+      <p class="sec-sub">
+        Whether you're running OSINT &amp; web scraping tools, bypassing censorship on Telegram, or sharing a rotating proxy from your phone to a locked laptop over Wi-Fi.
+      </p>
+      <div class="features">
+        <div class="card">
+          <h3>100 to 1,100 Unique Parallel Exit IPs</h3>
+          <p>Choose Eco (100), Light (350), Standard (700), or Turbo (1,100). Duplicate Exit IPs are automatically disconnected and replaced from hot-standby spares without disturbing active unique circuits.</p>
+        </div>
+        <div class="card">
+          <h3>Auto-Rotates Even on Normal Browser Reloads</h3>
+          <p>Every new connection steps round-robin across your connected IPs—and idle Keep-Alive web sockets close cleanly after 1.8s of silence so normal browser reloads get a fresh IP automatically.</p>
+        </div>
+        <div class="card">
+          <h3>Whole-Phone &amp; Per-App Android VPN</h3>
+          <p>Route all device apps (automatically bypassing Tor Browser) or pick individual apps via split-tunneling while local <code>:10000</code> SOCKS5 &amp; <code>:8080</code> HTTP stay active simultaneously.</p>
+        </div>
+        <div class="card">
+          <h3>Silent System Tray on Windows &amp; Linux</h3>
+          <p>Zero terminal windows required. Manage Connect/Disconnect, copy your active proxy IP, and toggle Wi-Fi LAN sharing directly from your top bar or Windows notification tray.</p>
+        </div>
+        <div class="card">
+          <h3>Safe Wi-Fi LAN Sharing</h3>
+          <p>Locked strictly to <code>127.0.0.1</code> by default on public Wi-Fi. Flip on <strong>Share on Wi-Fi LAN</strong> anytime (with optional password protection) to route other PCs or phones through TorGrid.</p>
+        </div>
+        <div class="card">
+          <h3>Built-in obfs4 Censorship Bypass</h3>
+          <p>On restricted ISP, campus, or workplace networks where direct Tor is blocked, switch in 1 click to built-in <code>obfs4</code> bridges or paste custom <code>@GetBridgesBot</code> lines.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="downloads">
+      <h2>Direct Official Downloads (v1.0.0)</h2>
+      <p class="sec-sub">All official binaries are published and checksummed on GitHub Releases.</p>
+      <div class="dl-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Platform</th>
+              <th>Package</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Android (8.0+)</strong></td>
+              <td><a href="https://github.com/localhost-server/TorGrid/releases/latest/download/torgrid.apk"><strong>torgrid.apk</strong></a></td>
+              <td>Universal <code>arm64-v8a</code> + <code>armeabi-v7a</code> APK (<code>tor</code> &amp; <code>obfs4proxy</code> included; Obtainium supported)</td>
+            </tr>
+            <tr>
+              <td><strong>Debian / Ubuntu / Kali (x64)</strong></td>
+              <td><a href="https://github.com/localhost-server/TorGrid/releases/latest/download/torgrid_1.0.0_amd64.deb"><strong>torgrid_1.0.0_amd64.deb</strong></a></td>
+              <td>1-command <code>apt</code> installer &bull; Auto-installs dependencies + Desktop &amp; System Tray launcher</td>
+            </tr>
+            <tr>
+              <td><strong>Debian / Raspberry Pi (ARM64)</strong></td>
+              <td><a href="https://github.com/localhost-server/TorGrid/releases/latest/download/torgrid_1.0.0_arm64.deb"><strong>torgrid_1.0.0_arm64.deb</strong></a></td>
+              <td>Native 64-bit ARM <code>.deb</code> package for Raspberry Pi OS &amp; Debian/Ubuntu ARM64</td>
+            </tr>
+            <tr>
+              <td><strong>Windows 10 / 11 (x64)</strong></td>
+              <td><a href="https://github.com/localhost-server/TorGrid/releases/latest/download/torgrid-windows-amd64.exe"><strong>torgrid-windows-amd64.exe</strong></a></td>
+              <td>Portable System Tray GUI executable (uses installed Tor Browser or Tor Expert Bundle <code>tor.exe</code>)</td>
+            </tr>
+            <tr>
+              <td><strong>Linux Static Binaries</strong></td>
+              <td>
+                <a href="https://github.com/localhost-server/TorGrid/releases/latest/download/torgrid-linux-amd64"><strong>amd64</strong></a> &middot;
+                <a href="https://github.com/localhost-server/TorGrid/releases/latest/download/torgrid-linux-arm64"><strong>arm64</strong></a>
+              </td>
+              <td>Standalone static binaries for Arch Linux, Fedora, Alpine, or headless VPS servers</td>
+            </tr>
+            <tr>
+              <td><strong>SHA-256 Checksums</strong></td>
+              <td><a href="https://github.com/localhost-server/TorGrid/releases/latest/download/SHA256SUMS"><strong>SHA256SUMS</strong></a></td>
+              <td>APK Signing Cert SHA-256: <code>c3989cd3a77c2061c0874073b64c169782db43762a0dca107826a650152df773</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="quickstart">
+      <h2>Quick Start in 30 Seconds</h2>
+      <p class="sec-sub">Install on Debian, Ubuntu, or Kali Linux and launch silently into your System Tray:</p>
+      <div class="card">
+<pre>curl -fLO https://github.com/localhost-server/TorGrid/releases/latest/download/torgrid_1.0.0_amd64.deb
+sudo apt install -y ./torgrid_1.0.0_amd64.deb
+torgrid --daemon
+
+# Test rotating Exit IPs via SOCKS5 (:10000) or HTTP (:8080):
+curl --socks5-hostname 127.0.0.1:10000 https://check.torproject.org/api/ip
+curl -x http://127.0.0.1:8080 https://api.ipify.org?format=json</pre>
+      </div>
+    </section>
+
+    <section id="screenshots">
+      <h2>App &amp; Synced Web Dashboard</h2>
+      <p class="sec-sub">Unified experience across Android, System Tray, and the local Browser Dashboard.</p>
+      <div class="shots">
+        <img class="phone" src="assets/android-connect.png" alt="TorGrid Android App Connected 350 Unique Exit IPs" loading="lazy" />
+        <img class="phone" src="assets/android-settings.png" alt="TorGrid Android Settings Dark Theme" loading="lazy" />
+        <img class="web" src="assets/web-dashboard.png" alt="TorGrid Local Synced Web Dashboard" loading="lazy" />
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <p class="sec-sub">Common questions about TorGrid's multi-circuit proxy pool and split-tunnel VPN.</p>
+      <details open>
+        <summary>How is TorGrid different from Orbot or single-circuit Tor (:9050)?</summary>
+        <p>Standard Tor (:9050) and Orbot route all your requests through a single circuit for ~10 minutes, causing slow speeds and fast rate-limiting. TorGrid connects 100 to 1,100 guaranteed non-duplicate Tor Exit IPs concurrently and distributes connections across all of them in round-robin order.</p>
+      </details>
+      <details>
+        <summary>Does TorGrid require Docker or complex configuration?</summary>
+        <p>Zero Docker and zero configuration files. On Android, Tor and obfs4proxy are bundled inside the APK. On Debian/Ubuntu/Kali, the .deb installer pulls tor &amp; obfs4proxy automatically via apt and adds a native System Tray icon. On Windows, double-clicking the .exe runs silently in your System Tray.</p>
+      </details>
+      <details>
+        <summary>Can I share TorGrid from my Android phone or PC to other devices on Wi-Fi?</summary>
+        <p>Yes. By default TorGrid binds strictly to 127.0.0.1 so strangers on public Wi-Fi cannot touch your proxy. Turning on "Share on Wi-Fi LAN" in the Android Proxy tab or PC System Tray immediately exposes :10000 (SOCKS5) and :8080 (HTTP) on your local Wi-Fi IP with optional password authentication.</p>
+      </details>
+    </section>
+
+    <section id="support">
+      <h2>Support Ongoing Development</h2>
+      <p class="sec-sub">TorGrid is 100% free with zero ads and zero telemetry. If it saves you time or proxy costs, you can support the project:</p>
+      <div class="card" style="text-align:center;">
+        <p style="margin-bottom:16px;">
+          <a class="btn primary" href="https://ko-fi.com/kaliansh" target="_blank" rel="noopener">Support on Ko-fi &nearr;</a>
+        </p>
+        <p style="font-size:13.5px;color:var(--muted);">
+          <strong>Ethereum / ERC20 (ETH / USDT / USDC):</strong><br />
+          <code>0x9d7fa4d4b1daad6464d64851fa021f49f6e54836</code>
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 TorGrid Authors. Official downloads at <a href="https://github.com/localhost-server/TorGrid">github.com/localhost-server/TorGrid</a>.</p>
+      <p style="margin-top:6px;font-size:12px;">Tor&reg; is a registered trademark of The Tor Project, Inc. TorGrid is an independent project not affiliated with or endorsed by The Tor Project.</p>
+    </footer>
+  </div>
+
+</body>
+</html>
